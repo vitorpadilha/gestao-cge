@@ -2,9 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\User;
 
-class Falta extends Model
+class Falta extends ModeloGenerico
 {
-    //
+    private $dataFalta;
+    
+    private $observacao;
+    
+    private $totalDeAulasNoDia;
+    
+    
+    public function professor() {        
+        return $this->belongsTo(Professor::class,"idProfessor");
+    }
+    
+    public function usuarioRegistrou() {
+        return $this->belongsTo(User::class,"idUsuarioRegistrou");
+    }
+    
+    public function itensHorarioFalta() {
+        return $this->hasMany(ItemFaltaHorario::class,'idFalta');
+    }
 }

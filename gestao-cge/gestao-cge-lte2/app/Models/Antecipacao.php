@@ -2,24 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Antecipacao extends Model
+class Antecipacao extends ModeloGenerico
 {
     protected $table = 'antecipacoes';
     /**
      * Get the comments for the blog post.
      */
-    public function horariosOriginal()
+    
+    
+    public function professor()
     {
-        return $this->belongsToMany('App\Models\Horario', 'horario_original', 'idAntecipacao', 'idHorario');
+        return $this->belongsTo(Professor::class,"idProfessor");
     }
     
-    /**
-     * Get the comments for the blog post.
-     */
-    public function horariosAntecipados()
+    public function itens()
     {
-        return $this->belongsToMany('App\Models\Horario', 'horario_antecipacao', 'idAntecipacao', 'idHorario');
+        return $this->hasMany(ItemAntecipacao::class,'idAntecipacao');
     }
 }

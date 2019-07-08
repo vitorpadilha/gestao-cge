@@ -5,8 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ModeloGenerico extends Model
 {
-    protected $id;
-    protected $primaryKey = 'id';
+    //protected $id;
+    //protected $primaryKey = 'id';
     
     public function getId()
     {

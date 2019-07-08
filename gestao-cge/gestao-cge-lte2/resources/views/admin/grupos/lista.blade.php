@@ -1,6 +1,6 @@
 {{-- resources/views/admin/dashboard.blade.php --}}
 
-@extends('adminlte::page')
+@extends('layouts/gestao')
 
 @section('title', 'Cadastrar Grupo')
 
@@ -8,12 +8,10 @@
     <h1>Cadastro de Grupo</h1>
 @endsection
 
-@section('content')
-	<div class="box">
-		<div class="box-header">
-			<a href="{{ route('grupos.mantem') }}" class="btn btn-primary">Cadastrar Novo Grupo</a>
-		</div>
-		<div class="box-body">
+@section('cabecalho_conteudo')
+	<a href="{{ route('grupos.mantem') }}" class="btn btn-primary">Cadastrar Novo Grupo</a>
+@endsection
+@section('conteudo')
         	<table class="table table-bordered table-hover">
         		<thead>
         			<tr>
@@ -29,9 +27,6 @@
         			@endforelse
         		</tbody>
         	</table>
-        </div>
-    	
-	</div>
 @endsection
 
 @section('css')

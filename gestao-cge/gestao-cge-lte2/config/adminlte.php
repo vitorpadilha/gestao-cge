@@ -160,12 +160,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Cadastrar Novo Docente',
-                    'url'  => '#',
+                    'url'  => '/professores/mantem',
                     'icon'    => 'plus-circle',
                 ],
                 [
                     'text' => 'Listar Docentes',
-                    'url'  => '#',
+                    'url'  => '/professores/listar',
                     'icon'    => 'list',
                 ],
             ],
@@ -176,12 +176,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Cadastrar Novo Curso',
-                    'url'  => '#',
+                    'url'  => '/cursos/mantem',
                     'icon'    => 'plus-circle',
                 ],
                 [
                     'text' => 'Listar Cursos',
-                    'url'  => '#',
+                    'url'  => '/cursos/listar',
                     'icon'    => 'list',
                 ],
             ],
@@ -198,6 +198,38 @@ return [
                 [
                     'text' => 'Listar Turma',
                     'url'  => '#',
+                    'icon'    => 'list',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Disciplinas',
+            'icon'    => 'book',
+            'submenu' => [
+                [
+                    'text' => 'Cadastrar Disciplina',
+                    'url'  => '/disciplinas/mantem',
+                    'icon'    => 'plus-circle',
+                ],
+                [
+                    'text' => 'Listar Disciplinas',
+                    'url'  => '/disciplinas/listar',
+                    'icon'    => 'list',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Áreas de Atuação',
+            'icon'    => 'book',
+            'submenu' => [
+                [
+                    'text' => 'Cadastrar Área de Atuação',
+                    'url'  => '/areasatuacao/mantem',
+                    'icon'    => 'plus-circle',
+                ],
+                [
+                    'text' => 'Listar Áreas de Atuação',
+                    'url'  => '/areasatuacao/listar',
                     'icon'    => 'list',
                 ],
             ],

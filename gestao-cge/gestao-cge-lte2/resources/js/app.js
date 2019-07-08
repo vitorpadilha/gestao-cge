@@ -20,14 +20,62 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('modalmensagem', require('./components/modelMessage.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+/*
+const app = new Vue({
+	el: '#app2',
+	data: {
+        	mensagemModal: 'Bob'
+        }
+});
+export default function mostraModalMensagemOK(msg){
+	app.mensagemModal = msg;
+}
+*/
+
+import VuePagination from './components/pagination.vue';
+import axios from 'axios';
+
+axios.defaults.headers.common = {
+    'X-Requested-With': 'XMLHttpRequest',
+    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+};
+
 
 const app = new Vue({
-    el: '#app'
+    el: '#container2',
+    data: {
+        users: {
+            total: 0,
+            per_page: 2,
+            from: 1,
+            to: 0,
+            current_page: 1
+        },
+		offset: 4,
+		urlList:''
+    },
+    mounted() {
+        this.getUsers();
+    },
+    components: {
+        VuePagination,
+    },
+    methods: {
+        getUsers() {
+            axios.get(`/usuarios/listarJson?page=${this.users.current_page}`)
+                .then((response) => {
+                    this.users = response.data;
+                })
+                .catch(() => {
+                    console.log('handle server error from here');
+                });
+        }
+    }
 });

@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Horario extends Model
+class Horario extends ModeloGenerico
 {
-    //
+    private $diaDaSemana;
+    private $horarioInicio;
+    private $horarioTermino;
+    private $turno;
+    private $ordemTempoNoTurno;
+    private $modalidade;
 }

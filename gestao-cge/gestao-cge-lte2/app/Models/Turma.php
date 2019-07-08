@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Turma extends Model
+class Turma extends ModeloGenerico
 {
-    //
+    private $periodo;
+    private $descricao;
+    public function curso() {
+        return $this->belongsTo(Curso::class,"idDisciplina");
+    }
 }

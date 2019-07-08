@@ -17,17 +17,18 @@ class MantemGrupoUsuarioController extends Controller
         return view('admin.grupos.lista', compact('grupos'));
     }
     public function exibirForm() {
-        $dataAtual = date('d/M/Y');
-        return view('admin.grupos.form');
+        $acao = '';
+        return view('admin.grupos.form',compact('acao'));
     }
     public function cadastrar(Request $request) {
         $dataForm = $request->except("_token");
         $grupo = new GrupoUsuario();
+        $acao = "";
         if($this->grupo->create($dataForm)) {
-            return redirect()->route('grupos.list')->with('msg',"Grupo de Usuário Cadastrado com Sucesso");
+            return redirect()->route('grupos.list')->with('msgOk',"Grupo de Usuário Cadastrado com Sucesso");
         }
         else {
-            return view('admin.grupos.form',['confirmacao'=>$msg]);
+            return view('admin.grupos.form',['msgErro'=>$msg,'acao'=>""]);
         }
     }
 }

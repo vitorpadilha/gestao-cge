@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Curso extends Model
+class Curso extends ModeloGenerico
 {
+    protected $fillable = ['descricao','modalidade','periodos'];
     /**
      * Get the comments for the blog post.
      */
-    public function horarios()
+    public function matrizesCurriculares()
     {
-        return $this->belongsToMany('App\Models\Horario', 'horario_curso', 'idCurso', 'idHorario');
+        return $this->hasMany(MatrizCurricular::class,'idCurso');
     }
 }
